@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	public void optionOne() {
+	public static void optionOne() {
 		System.out.println("Type du compte : [Types possibles : COURANT, JOINT, EPARGNE] :");
-		System.out.println("Numéro du compte :");
-		System.out.println("Première valeur créditée :");
+		System.out.println("Numï¿½ro du compte :");
+		System.out.println("Premiï¿½re valeur crï¿½ditï¿½e :");
 		System.out.println("Taux de placement :");
 	}
 	
@@ -15,7 +15,7 @@ public class Menu {
 	 * Retrieves informations about the account that is going to be displayed
 	 * @param args
 	 */
-	public int optionTwo() {
+	public static int optionTwo() {
 		System.out.println("Quel compte souhaitez-vous consulter ?");
 		Scanner account = new Scanner(System.in);
 		int accToDisplay = account.nextInt();
@@ -27,7 +27,7 @@ public class Menu {
 	 * Display : Not handled yet
 	 * @param args
 	 */
-	public void optionThree() {
+	public static void optionThree() {
 		System.out.println("Option not yet implemented.");
 	}
 	
@@ -35,7 +35,7 @@ public class Menu {
 	 * Exit the program
 	 * @param args
 	 */
-	public void optionFour() {
+	public static void optionFour() {
 		System.exit(0);
 	}
 	
@@ -43,7 +43,8 @@ public class Menu {
 	 * Displays help related to the different options of the program
 	 * @param args
 	 */
-	public void optionFive(){
+	public static void optionFive(){
+		// not yet implemented
 		
 	}
 	
@@ -61,7 +62,14 @@ public class Menu {
 		choice.close();
 		// swithc through the choice made
 			switch(validChoice) {
-				
+				case 1 : 
+						Menu.optionOne();
+						break;
+				case 2 :
+						Menu.optionTwo();
+						break;
+				default:
+					System.out.println("Choice is not a valid operation");
 			}
 			
 	}
