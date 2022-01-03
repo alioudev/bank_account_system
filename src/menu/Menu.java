@@ -4,10 +4,26 @@ import java.util.Scanner;
 
 public class Menu {
 	
+	/**
+	 * Menu of the program
+	 */
+	public static void menu(){
+		System.out.println("1 - Creer un compte");
+		System.out.println("2 - Afficher un compte");
+		System.out.println("3 - Creer une ligne comptable");
+		System.out.println("4 - Sortir");
+		System.out.println("5 - Afficher l'aide");
+		System.out.println("Votre choix :");
+	}
+
+	/**
+	 * Displays form for a new account to be created
+	 * return 
+	 */
 	public static void optionOne() {
 		System.out.println("Type du compte : [Types possibles : COURANT, JOINT, EPARGNE] :");
-		System.out.println("Num�ro du compte :");
-		System.out.println("Premi�re valeur cr�dit�e :");
+		System.out.println("Numero du compte :");
+		System.out.println("Premiere valeur creditee :");
 		System.out.println("Taux de placement :");
 	}
 	
@@ -15,25 +31,25 @@ public class Menu {
 	 * Retrieves informations about the account that is going to be displayed
 	 * @param args
 	 */
-	public static int optionTwo() {
+	public static Integer optionTwo() {
 		System.out.println("Quel compte souhaitez-vous consulter ?");
 		Scanner account = new Scanner(System.in);
-		int accToDisplay = account.nextInt();
+		int accountToDisplay = account.nextInt();
 		account.close();
-		return accToDisplay;
+		return accountToDisplay;
 	}
 	
 	/**
 	 * Display : Not handled yet
-	 * @param args
+	 * @param args : N/A
 	 */
 	public static void optionThree() {
 		System.out.println("Option not yet implemented.");
 	}
 	
 	/**
-	 * Exit the program
-	 * @param args
+	 * Exit the whole program
+	 * @param args : N/A
 	 */
 	public static void optionFour() {
 		System.exit(0);
@@ -51,27 +67,35 @@ public class Menu {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("1 - Creer un compte");
-		System.out.println("2 - Afficher un compte");
-		System.out.println("3 - Creer une ligne comptable");
-		System.out.println("4 - Sortir");
-		System.out.println("5 - De l'aide");
-		System.out.println("Votre choix :");
+		// call the menu
+		menu();
+		// get the user input (i.e choice)
 		Scanner choice = new Scanner(System.in);
 		int validChoice = choice.nextInt();
-		choice.close();
-		// swithc through the choice made
-			switch(validChoice) {
-				case 1 : 
-						Menu.optionOne();
-						break;
-				case 2 :
-						Menu.optionTwo();
-						break;
-				default:
-					System.out.println("Choice is not a valid operation");
-			}
+		// 
+			// switch through the choice of the user
+				switch(validChoice) {
+					case 1 : 
+							optionOne();
+							break;
+					case 2 :
+							optionTwo();
+							break;
+					case 3 : 
+							optionThree();
+							break;
+					case 4 : 
+							optionFour();
+							break;
+					case 5 : 
+							optionFive();
+							break;
+					default:
+						System.out.println("Choice is not a valid operation, make a new one.");
+				}
 			
+		// close the used scanner
+		choice.close();
 	}
 
 }
