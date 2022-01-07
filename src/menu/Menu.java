@@ -1,9 +1,15 @@
 package menu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 	
+	/**
+	 * Instances variables for the program
+	 */
+
+	public  ArrayList<Object> accountArrayList = new ArrayList<>();
 	/**
 	 * Menu of the program
 	 */
@@ -20,11 +26,16 @@ public class Menu {
 	 * Displays form for a new account to be created
 	 * return 
 	 */
-	public static void optionOne() {
+	public  void optionOne() {
 		System.out.println("Type du compte : [Types possibles : COURANT, JOINT, EPARGNE] :");
+		Scanner account = new Scanner(System.in);
+		String accountType = account.next();
+		accountArrayList.add(accountType);
 		System.out.println("Numero du compte :");
 		System.out.println("Premiere valeur creditee :");
 		System.out.println("Taux de placement :");
+		
+		account.close();
 	}
 	
 	/**
