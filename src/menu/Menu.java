@@ -1,13 +1,19 @@
 package menu;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 	
 	/**
+	 * Instances variables of the program
+	 */
+	protected ArrayList<Object> creationCompte = new ArrayList<>();
+	/**
 	 * Menu of the program
 	 */
-	public static void menu(){
+	public  void menu(){
 		System.out.println("1 - Creer un compte");
 		System.out.println("2 - Afficher un compte");
 		System.out.println("3 - Creer une ligne comptable");
@@ -20,11 +26,29 @@ public class Menu {
 	 * Displays form for a new account to be created
 	 * return 
 	 */
-	public static void optionOne() {
+	public  List<Object>  optionOne() {
 		System.out.println("Type du compte : [Types possibles : COURANT, JOINT, EPARGNE] :");
+		Scanner compte = new Scanner(System.in);
+		String typeCompte = compte.next();
+		creationCompte.add(typeCompte);
+		compte.close();
 		System.out.println("Numero du compte :");
+		Scanner numero = new Scanner(System.in);
+		Integer numeroCompte = numero.nextInt();
+		creationCompte.add(numeroCompte);		
+		numero.close();
 		System.out.println("Premiere valeur creditee :");
+		Scanner scValeurCredite = new Scanner(System.in);
+		Float valeurCreditee = scValeurCredite.nextFloat();
+		creationCompte.add(valeurCreditee);
+		scValeurCredite.close();
 		System.out.println("Taux de placement :");
+		Scanner scTauxPlacement = new Scanner(System.in);
+		Float tauxPlacement = scTauxPlacement.nextFloat();
+		creationCompte.add(tauxPlacement);
+		scTauxPlacement.close();
+		// return the arrayList containing all the data saved from above
+		return creationCompte;
 	}
 	
 	/**
@@ -67,8 +91,10 @@ public class Menu {
 	
 	public static void main(String[] args) {
 		
+		// Make and instance of the class
+		Menu m = new Menu();
 		// call the menu
-		menu();
+		m.menu();
 		// get the user input (i.e choice)
 		Scanner choice = new Scanner(System.in);
 		int validChoice = choice.nextInt();
@@ -76,7 +102,7 @@ public class Menu {
 			// switch through the choice of the user
 				switch(validChoice) {
 					case 1 : 
-							optionOne();
+							m.optionOne();
 							break;
 					case 2 :
 							optionTwo();
